@@ -41,7 +41,6 @@ Anti-forgery Tokens
 ## Web API
 RESTful  
 APIController  
-DTOs  
-Auto Mapper  
 Camel Notation  
 IHttpActionResult   
+SPAs
