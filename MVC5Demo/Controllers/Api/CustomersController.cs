@@ -8,6 +8,10 @@ using System.Web.Http;
 
 namespace MVC5Demo.Controllers.Api
 {
+    public class DTO
+    {
+        public string name { get; set; }
+    }
     public class CustomersController : ApiController
     {
         //GET /api/customers
@@ -20,6 +24,12 @@ namespace MVC5Demo.Controllers.Api
                 new Customer{Name="Alice" }
             };
             return customers;
+        }
+
+        [HttpPost]
+        public IHttpActionResult CreateCustomers(DTO dto)
+        {
+            return Ok();
         }
     }
 }

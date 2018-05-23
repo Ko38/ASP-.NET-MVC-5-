@@ -21,6 +21,17 @@ namespace MVC5Demo.Controllers
             return View(customer);
         }
 
+        public ActionResult NewSPA()
+        {
+            Customer customer = new Customer
+            {
+                Name = "Phil",
+                Id = 1,
+                Counts = new List<int>() { 1, 2, 3, 4 }
+            };
+            return View(customer);
+        }
+
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Create(Customer customer)

@@ -1,0 +1,33 @@
+﻿@model MVC5Demo.Models.Customer
+
+@{
+    ViewBag.Title = "NewSPA";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New</h2>
+
+<input id="nameId" value="@Model.Name" />    
+<button class="btn btn-primary" id="js-ajax">Save</button>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#js-ajax").on("click", function () {
+                var vm = {
+                };
+                vm.name = $("#nameId").val();
+                $.ajax({
+                    url: "/api/customers/",
+                    data: vm,
+                    method: "post",
+                    success: function (data) {
+                        alert("POST success");
+                    }
+                });
+            });
+        });
+    </script>
+}
+
