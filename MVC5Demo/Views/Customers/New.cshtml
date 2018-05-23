@@ -10,6 +10,7 @@
 
 @using (Html.BeginForm("Create", "Customers"))
 {
+    @Html.ValidationSummary(true, "No good")
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class="form-control"})
@@ -28,5 +29,10 @@
         @Html.LabelFor(m => m.Counts)
         @Html.DropDownListFor(m => m.Counts, new SelectList(Model.Counts), "Counts" ,new { @class = "form-control" })
     </div>
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    }
