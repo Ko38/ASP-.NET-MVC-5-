@@ -8,13 +8,13 @@
 <h2>New</h2>
 
 
-@using (Html.BeginForm("Create", "Customers"))
-{
+@*@using (Html.BeginForm("Create", "Customers"))
+{*@
     @Html.ValidationSummary(true, "No good")
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class="form-control"})
-        @Html.ValidationMessageFor(m=>m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.IsCool)
@@ -27,12 +27,29 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Counts)
-        @Html.DropDownListFor(m => m.Counts, new SelectList(Model.Counts), "Counts" ,new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.Counts, new SelectList(Model.Counts), "Counts", new { @class = "form-control" })
     </div>
     @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Save</button>
-}
+    <button @*type="submit"*@ class="btn btn-primary" id="js-ajax">Save</button>
+@*}*@
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    }
+    <script>
+        $(document).ready(function () {
+            $("#js-ajax").on("click", function () {
+                $.ajax({
+                    url: "/api/customers/",
+                    method: "GET",
+                    success: function () {
+                        console.log("Succ");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+}
+
