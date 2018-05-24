@@ -44,3 +44,40 @@ APIController
 Camel Notation  
 IHttpActionResult   
 SPAs
+
+```
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 5px solid #000;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 50pt;
+}
+
+```
+
+```
+<table>
+    <tr>
+        <td id="0">X</td>
+        <td id="1">O</td>
+        <td id="2">@Model.Grid[0, 2]</td>
+    </tr>
+    <tr>
+        <td id="3">@Model.Grid[1, 0]</td>
+        <td id="4">@Model.Grid[1, 1]</td>
+        <td id="5">@Model.Grid[1, 2]</td>
+    </tr>
+    <tr>
+        <td id="6">@Model.Grid[2, 0]</td>
+        <td id="7">@Model.Grid[2, 1]</td>
+        <td id="8">@Model.Grid[2, 2]</td>
+    </tr>
+</table>
+````
